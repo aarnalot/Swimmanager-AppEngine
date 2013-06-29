@@ -1,0 +1,254 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://swimmanager2013.appspot.com/_ah/api",
+  "name" : "competenciaendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://swimmanager2013.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "brainstorm.com",
+  "ownerName" : "brainstorm.com",
+  "packagePath" : "swimmanager",
+  "methods" : {
+    "competenciaendpoint.updateCompetencia" : {
+      "path" : "competencia",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.CompetenciaEndpoint.updateCompetencia",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "competenciaendpoint.listCompetencia" : {
+      "path" : "competencia",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.CompetenciaEndpoint.listCompetencia",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "competenciaendpoint.getCompetencia" : {
+      "path" : "competencia/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.CompetenciaEndpoint.getCompetencia",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "competenciaendpoint.insertCompetencia" : {
+      "path" : "competencia",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.CompetenciaEndpoint.insertCompetencia",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "competenciaendpoint.removeCompetencia" : {
+      "path" : "competencia/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.CompetenciaEndpoint.removeCompetencia",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Competencia" : {
+        "id" : "Competencia",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "$ref" : "Key"
+          },
+          "nombre" : {
+            "type" : "string"
+          },
+          "descripcion" : {
+            "type" : "string"
+          },
+          "deportistas" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "evento" : {
+            "$ref" : "Evento"
+          }
+        }
+      },
+      "Key" : {
+        "id" : "Key",
+        "type" : "object",
+        "properties" : {
+          "kind" : {
+            "type" : "string"
+          },
+          "appId" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "Key"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "namespace" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Evento" : {
+        "id" : "Evento",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "$ref" : "Key"
+          },
+          "nombre" : {
+            "type" : "string"
+          },
+          "fecha" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "descripcion" : {
+            "type" : "string"
+          },
+          "competencias" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Key"
+            }
+          }
+        }
+      },
+      "CollectionResponse_Competencia" : {
+        "id" : "CollectionResponse_Competencia",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Competencia"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.brainstorm.swimmanager.CompetenciaEndpoint.updateCompetencia" : {
+        "request" : {
+          "$ref" : "Competencia"
+        },
+        "response" : {
+          "$ref" : "Competencia"
+        }
+      },
+      "com.brainstorm.swimmanager.CompetenciaEndpoint.listCompetencia" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Competencia"
+        }
+      },
+      "com.brainstorm.swimmanager.CompetenciaEndpoint.getCompetencia" : {
+        "response" : {
+          "$ref" : "Competencia"
+        }
+      },
+      "com.brainstorm.swimmanager.CompetenciaEndpoint.insertCompetencia" : {
+        "request" : {
+          "$ref" : "Competencia"
+        },
+        "response" : {
+          "$ref" : "Competencia"
+        }
+      },
+      "com.brainstorm.swimmanager.CompetenciaEndpoint.removeCompetencia" : {
+        "response" : {
+          "$ref" : "Competencia"
+        }
+      }
+    }
+  }
+}

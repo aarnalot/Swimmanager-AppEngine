@@ -1,0 +1,230 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://swimmanager2013.appspot.com/_ah/api",
+  "name" : "eventoendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://swimmanager2013.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "brainstorm.com",
+  "ownerName" : "brainstorm.com",
+  "packagePath" : "swimmanager",
+  "methods" : {
+    "eventoendpoint.listEvento" : {
+      "path" : "evento",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.EventoEndpoint.listEvento",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "eventoendpoint.removeEvento" : {
+      "path" : "evento/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.EventoEndpoint.removeEvento",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "eventoendpoint.updateEvento" : {
+      "path" : "evento",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.EventoEndpoint.updateEvento",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "eventoendpoint.insertEvento" : {
+      "path" : "evento",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.EventoEndpoint.insertEvento",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "eventoendpoint.getEvento" : {
+      "path" : "evento/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.EventoEndpoint.getEvento",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "CollectionResponse_Evento" : {
+        "id" : "CollectionResponse_Evento",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Evento"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Evento" : {
+        "id" : "Evento",
+        "type" : "object",
+        "properties" : {
+          "key" : {
+            "$ref" : "Key"
+          },
+          "nombre" : {
+            "type" : "string"
+          },
+          "fecha" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "descripcion" : {
+            "type" : "string"
+          },
+          "competencias" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Key"
+            }
+          }
+        }
+      },
+      "Key" : {
+        "id" : "Key",
+        "type" : "object",
+        "properties" : {
+          "kind" : {
+            "type" : "string"
+          },
+          "appId" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "Key"
+          },
+          "complete" : {
+            "type" : "boolean"
+          },
+          "namespace" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.brainstorm.swimmanager.EventoEndpoint.listEvento" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Evento"
+        }
+      },
+      "com.brainstorm.swimmanager.EventoEndpoint.removeEvento" : {
+        "response" : {
+          "$ref" : "Evento"
+        }
+      },
+      "com.brainstorm.swimmanager.EventoEndpoint.updateEvento" : {
+        "request" : {
+          "$ref" : "Evento"
+        },
+        "response" : {
+          "$ref" : "Evento"
+        }
+      },
+      "com.brainstorm.swimmanager.EventoEndpoint.insertEvento" : {
+        "request" : {
+          "$ref" : "Evento"
+        },
+        "response" : {
+          "$ref" : "Evento"
+        }
+      },
+      "com.brainstorm.swimmanager.EventoEndpoint.getEvento" : {
+        "response" : {
+          "$ref" : "Evento"
+        }
+      }
+    }
+  }
+}

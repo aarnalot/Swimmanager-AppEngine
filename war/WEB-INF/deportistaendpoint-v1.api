@@ -1,0 +1,199 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://swimmanager2013.appspot.com/_ah/api",
+  "name" : "deportistaendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://swimmanager2013.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "brainstorm.com",
+  "ownerName" : "brainstorm.com",
+  "packagePath" : "swimmanager",
+  "methods" : {
+    "deportistaendpoint.removeDeportista" : {
+      "path" : "deportista/{id}",
+      "httpMethod" : "DELETE",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.DeportistaEndpoint.removeDeportista",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "deportistaendpoint.getDeportista" : {
+      "path" : "deportista/{id}",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.DeportistaEndpoint.getDeportista",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "deportistaendpoint.insertDeportista" : {
+      "path" : "deportista",
+      "httpMethod" : "POST",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.DeportistaEndpoint.insertDeportista",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "deportistaendpoint.listDeportista" : {
+      "path" : "deportista",
+      "httpMethod" : "GET",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.DeportistaEndpoint.listDeportista",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "deportistaendpoint.updateDeportista" : {
+      "path" : "deportista",
+      "httpMethod" : "PUT",
+      "scopes" : [ ],
+      "audiences" : [ ],
+      "clientIds" : [ ],
+      "rosyMethod" : "com.brainstorm.swimmanager.DeportistaEndpoint.updateDeportista",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Deportista" : {
+        "id" : "Deportista",
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string"
+          },
+          "nombres" : {
+            "type" : "string"
+          },
+          "apellidos" : {
+            "type" : "string"
+          },
+          "competencia" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "int64"
+            }
+          }
+        }
+      },
+      "CollectionResponse_Deportista" : {
+        "id" : "CollectionResponse_Deportista",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Deportista"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.brainstorm.swimmanager.DeportistaEndpoint.removeDeportista" : {
+        "response" : {
+          "$ref" : "Deportista"
+        }
+      },
+      "com.brainstorm.swimmanager.DeportistaEndpoint.getDeportista" : {
+        "response" : {
+          "$ref" : "Deportista"
+        }
+      },
+      "com.brainstorm.swimmanager.DeportistaEndpoint.insertDeportista" : {
+        "request" : {
+          "$ref" : "Deportista"
+        },
+        "response" : {
+          "$ref" : "Deportista"
+        }
+      },
+      "com.brainstorm.swimmanager.DeportistaEndpoint.listDeportista" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Deportista"
+        }
+      },
+      "com.brainstorm.swimmanager.DeportistaEndpoint.updateDeportista" : {
+        "request" : {
+          "$ref" : "Deportista"
+        },
+        "response" : {
+          "$ref" : "Deportista"
+        }
+      }
+    }
+  }
+}
