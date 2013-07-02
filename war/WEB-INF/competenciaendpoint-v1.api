@@ -76,7 +76,7 @@
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "int64",
+            "type" : "string",
             "required" : true
           }
         },
@@ -111,7 +111,7 @@
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "int64",
+            "type" : "string",
             "required" : true
           }
         },
@@ -128,9 +128,6 @@
         "id" : "Competencia",
         "type" : "object",
         "properties" : {
-          "key" : {
-            "$ref" : "Key"
-          },
           "nombre" : {
             "type" : "string"
           },
@@ -143,61 +140,17 @@
               "type" : "string"
             }
           },
-          "evento" : {
-            "$ref" : "Evento"
-          }
-        }
-      },
-      "Key" : {
-        "id" : "Key",
-        "type" : "object",
-        "properties" : {
-          "kind" : {
-            "type" : "string"
-          },
-          "appId" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "parent" : {
-            "$ref" : "Key"
-          },
-          "namespace" : {
-            "type" : "string"
-          },
-          "complete" : {
-            "type" : "boolean"
-          }
-        }
-      },
-      "Evento" : {
-        "id" : "Evento",
-        "type" : "object",
-        "properties" : {
-          "key" : {
-            "$ref" : "Key"
-          },
-          "nombre" : {
-            "type" : "string"
-          },
-          "fecha" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "descripcion" : {
-            "type" : "string"
-          },
-          "competencias" : {
+          "tiempos" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Key"
+              "type" : "number"
             }
+          },
+          "eventoKey" : {
+            "type" : "string"
+          },
+          "key" : {
+            "type" : "string"
           }
         }
       },

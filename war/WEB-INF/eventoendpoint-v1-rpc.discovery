@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"s1omim4x8ymp9_6H8kBMkfEDqpo/6xrtZeTMrqkMCizdf5grlJyZEsk\"",
+ "etag": "\"s1omim4x8ymp9_6H8kBMkfEDqpo/IdjE3c5Us2KdYiG5-pFKn4ASVI0\"",
  "discoveryVersion": "v1",
  "id": "eventoendpoint:v1",
  "name": "eventoendpoint",
@@ -85,49 +85,29 @@
     "competencias": {
      "type": "array",
      "items": {
-      "$ref": "Key"
+      "type": "string"
      }
+    },
+    "day": {
+     "type": "integer",
+     "format": "int32"
     },
     "descripcion": {
      "type": "string"
     },
-    "fecha": {
-     "type": "string",
-     "format": "date-time"
-    },
     "key": {
-     "$ref": "Key"
+     "type": "string"
+    },
+    "month": {
+     "type": "integer",
+     "format": "int32"
     },
     "nombre": {
      "type": "string"
-    }
-   }
-  },
-  "Key": {
-   "id": "Key",
-   "type": "object",
-   "properties": {
-    "appId": {
-     "type": "string"
     },
-    "complete": {
-     "type": "boolean"
-    },
-    "id": {
-     "type": "string",
-     "format": "int64"
-    },
-    "kind": {
-     "type": "string"
-    },
-    "name": {
-     "type": "string"
-    },
-    "namespace": {
-     "type": "string"
-    },
-    "parent": {
-     "$ref": "Key"
+    "year": {
+     "type": "integer",
+     "format": "int32"
     }
    }
   }
@@ -139,8 +119,7 @@
    "parameters": {
     "id": {
      "type": "string",
-     "required": true,
-     "format": "int64"
+     "required": true
     }
    },
    "parameterOrder": [
@@ -185,8 +164,7 @@
    "parameters": {
     "id": {
      "type": "string",
-     "required": true,
-     "format": "int64"
+     "required": true
     }
    },
    "parameterOrder": [

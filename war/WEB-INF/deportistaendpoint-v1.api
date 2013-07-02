@@ -140,8 +140,13 @@
           "competencia" : {
             "type" : "array",
             "items" : {
-              "type" : "string",
-              "format" : "int64"
+              "type" : "string"
+            }
+          },
+          "tiempos" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
             }
           }
         }

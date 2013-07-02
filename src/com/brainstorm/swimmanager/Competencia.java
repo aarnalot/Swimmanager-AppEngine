@@ -13,13 +13,11 @@ import com.google.appengine.api.datastore.Key;
 public class Competencia
 {
 	@Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Key key;
-	
 	private String nombre;
 	private String descripcion;
 	private ArrayList<String> deportistas;
-	private Evento evento;
+	private ArrayList<Double> tiempos;
+	private String eventoKey;
 	
 	public String getNombre()
 	{
@@ -41,23 +39,28 @@ public class Competencia
 	{
 		return deportistas;
 	}
+	public String getEventoKey()
+	{
+		return eventoKey;
+	}
+	public void setEventoKey(String evento)
+	{
+		this.eventoKey = evento;
+	}
+	public String getKey()
+	{
+		return nombre;
+	}
+	public ArrayList<Double> getTiempos()
+	{
+		return tiempos;
+	}
 	public void setDeportistas(ArrayList<String> deportistas)
 	{
 		this.deportistas = deportistas;
 	}
-	public Evento getEvento()
+	public void setTiempos(ArrayList<Double> tiempos)
 	{
-		return evento;
+		this.tiempos = tiempos;
 	}
-	public void setEvento(Evento evento)
-	{
-		this.evento = evento;
-	}
-	public Key getKey()
-	{
-		return key;
-	}
-	
-	
-	
 }

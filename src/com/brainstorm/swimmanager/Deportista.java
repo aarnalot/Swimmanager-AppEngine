@@ -12,7 +12,8 @@ public class Deportista {
 	
 	private String nombres;
 	private String apellidos;
-	private ArrayList<Long> competencia;
+	private ArrayList<String> competencia;
+	private ArrayList<String> tiempos;
 	
 	public String getNombres() {
 		return nombres;
@@ -32,13 +33,21 @@ public class Deportista {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public ArrayList<Long> getCompetencia()
+	public ArrayList<String> getCompetencia()
 	{
 		return competencia;
 	}
-	public void setCompetencia(ArrayList<Long> competencia)
+	public void setCompetencia(ArrayList<String> competencia)
 	{
 		this.competencia = competencia;
+	}
+	public ArrayList<String> getTiempos()
+	{
+		return tiempos;
+	}
+	public void setTiempos(ArrayList<String> tiempos)
+	{
+		this.tiempos = tiempos;
 	}
 	
 }

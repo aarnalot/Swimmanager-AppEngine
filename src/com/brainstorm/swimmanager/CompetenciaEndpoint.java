@@ -82,7 +82,7 @@ public class CompetenciaEndpoint
 	 * @return The entity with primary key id.
 	 */
 	@ApiMethod(name = "getCompetencia")
-	public Competencia getCompetencia(@Named("id") Long id)
+	public Competencia getCompetencia(@Named("id") String id)
 	{
 		EntityManager mgr = getEntityManager();
 		Competencia competencia = null;
@@ -156,7 +156,7 @@ public class CompetenciaEndpoint
 	 * @return The deleted entity.
 	 */
 	@ApiMethod(name = "removeCompetencia")
-	public Competencia removeCompetencia(@Named("id") Long id)
+	public Competencia removeCompetencia(@Named("id") String id)
 	{
 		EntityManager mgr = getEntityManager();
 		Competencia competencia = null;
@@ -177,7 +177,7 @@ public class CompetenciaEndpoint
 		boolean contains = true;
 		try
 		{
-			Competencia item = mgr.find(Competencia.class, competencia.getKey());
+			Competencia item = mgr.find(Competencia.class, competencia.getNombre());
 			if (item == null)
 			{
 				contains = false;

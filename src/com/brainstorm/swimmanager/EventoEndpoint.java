@@ -82,7 +82,7 @@ public class EventoEndpoint
 	 * @return The entity with primary key id.
 	 */
 	@ApiMethod(name = "getEvento")
-	public Evento getEvento(@Named("id") Long id)
+	public Evento getEvento(@Named("id") String id)
 	{
 		EntityManager mgr = getEntityManager();
 		Evento evento = null;
@@ -156,7 +156,7 @@ public class EventoEndpoint
 	 * @return The deleted entity.
 	 */
 	@ApiMethod(name = "removeEvento")
-	public Evento removeEvento(@Named("id") Long id)
+	public Evento removeEvento(@Named("id") String id)
 	{
 		EntityManager mgr = getEntityManager();
 		Evento evento = null;
@@ -177,7 +177,7 @@ public class EventoEndpoint
 		boolean contains = true;
 		try
 		{
-			Evento item = mgr.find(Evento.class, evento.getKey());
+			Evento item = mgr.find(Evento.class, evento.getNombre());
 			if (item == null)
 			{
 				contains = false;

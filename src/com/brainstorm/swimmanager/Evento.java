@@ -13,14 +13,13 @@ import com.google.appengine.api.datastore.Key;
 @Entity
 public class Evento
 {
-	@Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Key key;
-	
+	@Id	
 	private String nombre;
-	private Date fecha;
+	private int day;
+	private int month;
+	private int year;
 	private String descripcion;
-	private ArrayList<Key> competencias;
+	private ArrayList<String> competencias;
 	
 	public String getNombre()
 	{
@@ -30,13 +29,29 @@ public class Evento
 	{
 		this.nombre = nombre;
 	}
-	public Date getFecha()
+	public int getDay()
 	{
-		return fecha;
+		return day;
 	}
-	public void setFecha(Date fecha)
+	public void setDay(int day)
 	{
-		this.fecha = fecha;
+		this.day = day;
+	}
+	public int getMonth()
+	{
+		return month;
+	}
+	public void setMonth(int month)
+	{
+		this.month = month;
+	}
+	public int getYear()
+	{
+		return year;
+	}
+	public void setYear(int year)
+	{
+		this.year = year;
 	}
 	public String getDescripcion()
 	{
@@ -46,17 +61,17 @@ public class Evento
 	{
 		this.descripcion = descripcion;
 	}
-	public ArrayList<Key> getCompetencias()
+	public ArrayList<String> getCompetencias()
 	{
 		return competencias;
 	}
-	public void setCompetencias(ArrayList<Key> competencias)
+	public void setCompetencias(ArrayList<String> competencias)
 	{
 		this.competencias = competencias;
 	}
-	public Key getKey()
+	public String getKey()
 	{
-		return key;
+		return nombre;
 	}
 	
 	

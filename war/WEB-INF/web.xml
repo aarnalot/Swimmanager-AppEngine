@@ -5,7 +5,7 @@
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>com.brainstorm.swimmanager.CompetenciaEndpoint,com.brainstorm.swimmanager.DeportistaEndpoint,com.brainstorm.swimmanager.DeviceInfoEndpoint,com.brainstorm.swimmanager.EventoEndpoint,com.brainstorm.swimmanager.MessageEndpoint</param-value>
+   <param-value>com.brainstorm.swimmanager.CompetenciaEndpoint,com.brainstorm.swimmanager.DeportistaEndpoint,com.brainstorm.swimmanager.EventoEndpoint</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>

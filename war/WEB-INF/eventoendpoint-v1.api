@@ -61,7 +61,7 @@
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "int64",
+            "type" : "string",
             "required" : true
           }
         },
@@ -111,7 +111,7 @@
       "request" : {
         "parameters" : {
           "id" : {
-            "type" : "int64",
+            "type" : "string",
             "required" : true
           }
         },
@@ -143,15 +143,17 @@
         "id" : "Evento",
         "type" : "object",
         "properties" : {
-          "key" : {
-            "$ref" : "Key"
-          },
           "nombre" : {
             "type" : "string"
           },
-          "fecha" : {
-            "type" : "string",
-            "format" : "date-time"
+          "day" : {
+            "type" : "integer"
+          },
+          "month" : {
+            "type" : "integer"
+          },
+          "year" : {
+            "type" : "integer"
           },
           "descripcion" : {
             "type" : "string"
@@ -159,36 +161,11 @@
           "competencias" : {
             "type" : "array",
             "items" : {
-              "$ref" : "Key"
+              "type" : "string"
             }
-          }
-        }
-      },
-      "Key" : {
-        "id" : "Key",
-        "type" : "object",
-        "properties" : {
-          "kind" : {
+          },
+          "key" : {
             "type" : "string"
-          },
-          "appId" : {
-            "type" : "string"
-          },
-          "id" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "name" : {
-            "type" : "string"
-          },
-          "parent" : {
-            "$ref" : "Key"
-          },
-          "namespace" : {
-            "type" : "string"
-          },
-          "complete" : {
-            "type" : "boolean"
           }
         }
       }

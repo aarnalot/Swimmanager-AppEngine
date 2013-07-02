@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"s1omim4x8ymp9_6H8kBMkfEDqpo/29fMvZmQBIF0Kp-sY3J2cR8RQwA\"",
+ "etag": "\"s1omim4x8ymp9_6H8kBMkfEDqpo/z7X45VLGZ3kwM8CmokczYAE6jBY\"",
  "discoveryVersion": "v1",
  "id": "deportistaendpoint:v1",
  "name": "deportistaendpoint",
@@ -88,8 +88,7 @@
     "competencia": {
      "type": "array",
      "items": {
-      "type": "string",
-      "format": "int64"
+      "type": "string"
      }
     },
     "email": {
@@ -97,6 +96,12 @@
     },
     "nombres": {
      "type": "string"
+    },
+    "tiempos": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
     }
    }
   }
